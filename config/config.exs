@@ -31,9 +31,13 @@ config :phoenix, :json_library, Jason
 import_config "#{Mix.env()}.exs"
 
 # Configures the Swagger
-config :phoenix_sample, phoenix_swagger,
+
+config :phoenix_sample, :phoenix_swagger,
   swagger_files: %{
-    "priv/static/swagger.json" => [
-      router: 
+    "priv/static/swagger.yaml" => [
+      router: PhoenixSampleWeb.Router,
+      endpoint: PhoenixSampleWeb.Endpoint
     ]
   }
+
+config :phoenix_swagger, json_library: Jason

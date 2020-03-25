@@ -10,7 +10,8 @@ defmodule PhoenixSample.MixProject do
       compilers: [:phoenix, :gettext, :phoenix_swagger] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      escript: escript()
     ]
   end
 
@@ -61,4 +62,9 @@ defmodule PhoenixSample.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
+
+  defp escript do
+    [main_module: Main]
+  end
+
 end

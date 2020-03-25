@@ -10,7 +10,7 @@ defmodule PhoenixSampleWeb.PageController do
     render(conn, "index.html")
   end
 
-  @doc"""
+  @doc """
   sampleページを返却する
   """
   @doc since: "1.0.0"
