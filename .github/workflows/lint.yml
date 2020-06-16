@@ -15,6 +15,22 @@ jobs:
           sudo apt-get update \
               && sudo apt-get install -y rubygems \
               && sudo gem install mdl
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Cache for Bundler
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gem-
 
       - name: yarn install
         run: yarn install
