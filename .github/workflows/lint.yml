@@ -38,16 +38,13 @@ jobs:
       - name: yarn 
         run: yarn add eslint
 
+      - name: yarn add JSONlint
+        run: yarn add jsonlint
+
         #      - name: Lint JavaScript files
         # run: yarn eslint "lambda-functions/lib/**/*.js"
         # if: always()
 
-  lint-on-docker:
-    runs-on: ubuntu-latest
-    container:
-      image: rounin/circleci-linter
-    steps:
-      - uses: actions/checkout@v2.2.0
       - name: Lint JSON files
         run: |
           find . \
@@ -56,3 +53,4 @@ jobs:
               -print0 \
               | xargs -n 1 -0 \
                   jsonlint --quiet --compact
+
