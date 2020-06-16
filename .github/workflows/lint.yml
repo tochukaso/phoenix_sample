@@ -31,7 +31,7 @@ jobs:
     container:
       image: rounin/circleci-linter
     steps:
-      - uses: actions/checkout@v1.0.0
+      - uses: actions/checkout@master
       - name: Lint JSON files
         run: |
           find . \
