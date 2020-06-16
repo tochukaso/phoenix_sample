@@ -39,7 +39,7 @@ jobs:
         run: yarn add eslint
 
       - name: yarn add JSONlint
-        run: yarn add jsonlint
+        run: sudo yarn global add jsonlint
 
         #      - name: Lint JavaScript files
         # run: yarn eslint "lambda-functions/lib/**/*.js"
