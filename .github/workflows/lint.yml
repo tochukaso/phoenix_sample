@@ -26,6 +26,12 @@ jobs:
         # run: yarn eslint "lambda-functions/lib/**/*.js"
         # if: always()
 
+  lint-on-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: rounin/circleci-linter
+    steps:
+      - uses: actions/checkout@v1.0.0
       - name: Lint JSON files
         run: |
           find . \
