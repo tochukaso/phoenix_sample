@@ -41,9 +41,9 @@ jobs:
       - name: yarn add JSONlint
         run: sudo yarn global add jsonlint
 
-        #      - name: Lint JavaScript files
-        # run: yarn eslint "lambda-functions/lib/**/*.js"
-        # if: always()
+      - name: Lint JavaScript files
+        run: eslint "lambda-functions/lib/**/*.js"
+        if: always()
 
       - name: Lint JSON files
         run: |
