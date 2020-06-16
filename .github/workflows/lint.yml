@@ -36,7 +36,7 @@ jobs:
         run: yarn install
 
       - name: yarn 
-        run: yarn add eslint
+        run: sudo yarn global add eslint
 
       - name: yarn add JSONlint
         run: sudo yarn global add jsonlint
