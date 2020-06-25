@@ -42,7 +42,7 @@ jobs:
         run: sudo yarn global add jsonlint
 
       - name: Lint JavaScript files
-        run: eslint .js
+        run: eslint . --ext .js
         if: always()
 
       - name: Lint JSON files
