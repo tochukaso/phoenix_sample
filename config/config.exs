@@ -29,3 +29,15 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+# Configures the Swagger
+
+config :phoenix_sample, :phoenix_swagger,
+  swagger_files: %{
+    "priv/static/swagger.yaml" => [
+      router: PhoenixSampleWeb.Router,
+      endpoint: PhoenixSampleWeb.Endpoint
+    ]
+  }
+
+config :phoenix_swagger, json_library: Jason
