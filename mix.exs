@@ -4,13 +4,14 @@ defmodule PhoenixSample.MixProject do
   def project do
     [
       app: :phoenix_sample,
-      version: "0.1.0",
-      elixir: "~> 1.5",
+      version: "0.0.1",
+      elixir: "~> 1.9.2",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix, :gettext, :phoenix_swagger] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      escript: escript()
     ]
   end
 
@@ -33,16 +34,18 @@ defmodule PhoenixSample.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.13"},
-      {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.1"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:phoenix, "~> 1.4.13"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:phoenix_html, "~> 2.11"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_pubsub, "~> 1.1"},
+      {:phoenix_swagger, "~> 0.8"},
+      {:ex_json_schema, "~> 0.5"},
+      {:plug_cowboy, "~> 2.0"},
+      {:postgrex, ">= 0.0.0"}
     ]
   end
 
@@ -59,4 +62,9 @@ defmodule PhoenixSample.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
+
+  defp escript do
+    [main_module: Main]
+  end
+
 end
